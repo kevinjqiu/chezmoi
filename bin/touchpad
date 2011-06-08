@@ -1,0 +1,59 @@
+#! /usr/bin/python
+import argparse
+import commands
+import re
+from sys import stdout
+from operator import is_not
+from functools import partial
+
+get_device_id = partial(re.search, r'Synaptics TouchPad\s+id=(\d+)')
+is_not_none = partial(is_not, None)
+
+def get_touchpad_ids():
+    devices = commands.getoutput('xinput list').splitlines()
+    return [match.group(1) for match in filter(is_not_none, [get_device_id(line) for line in devices])]
+
+def set_touchpad_enabled(ids, flag, dry_run=False):
+    for id in ids:
+        v = {'id':id, 'flag':int(flag)}
+        cmd = 'xinput set-prop %(id)s "Device Enabled" %(flag)s' % v
+        if dry_run:
+            print >> stdout, cmd
+        else:
+            commands.getstatusoutput(cmd)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='A utility to enable/disable the touchpad')
+    parser.set_defaults(dry_run=False)
+    parser.add_argument('-l', '--list',
+        action='store_true',
+        help='list all touchpad device ids')
+    parser.add_argument('-d', '--dry-run',
+        action='store_true',
+        help='dry run')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--disable',
+        nargs='+',
+        metavar='ID',
+        help='disable the specified device ids')
+    group.add_argument('--disable-all',
+        action='store_true',
+        help='disable all touchpad devices')
+    group.add_argument('--enable',
+        nargs='+',
+        metavar='ID',
+        help='enable the specified device ids')
+    group.add_argument('--enable-all',
+        action='store_true',
+        help='enable all touchpad devices')
+    args = parser.parse_args()
+    if args.list:
+        print >> stdout, "\n".join(get_touchpad_ids())
+    if args.disable_all:
+        set_touchpad_enabled(get_touchpad_ids(), False, args.dry_run)
+    if args.disable:
+        set_touchpad_enabled(args.disable, False, args.dry_run)
+    if args.enable_all:
+        set_touchpad_enabled(get_touchpad_ids(), True, args.dry_run)
+    if args.enable:
+        set_touchpad_enabled(args.enable, True, args.dry_run)
