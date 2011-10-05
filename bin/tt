@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# create a new session, detach it and name it 'fresh'
+tmux new-session -d -s fresh
+# target session 'fresh' window id 1
+tmux new-window -t fresh:1 -n 'Evolve'
+tmux send-keys 'evolve_activate && dbg_evolve_service'
+tmux send-keys 'Enter'
+
+tmux new-window -t fresh:2 -n 'MySQL' '/usr/bin/mysql -u root'
+tmux new-window -t fresh:3 -n 'FreshApp Test'
+tmux new-window -t fresh:4 -n 'Evolve Test'
+tmux new-window -t fresh:5 -n 'Migration'
+tmux new-window -t fresh:6 -n 'Logs'
+tmux send-keys 'tail -f /tmp/evolve.log'
+tmux send-keys 'Enter'
+tmux splitw 'sudo tail -f /var/log/messages'
+tmux new-window -t fresh:7 -n 'Scratch'
+
+tmux select-window -t fresh:scratch
+# attach the session with 256 colour support
+tmux -2 attach-session -t fresh
