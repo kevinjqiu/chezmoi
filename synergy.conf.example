@@ -1,0 +1,19 @@
+section: screens
+kevin:
+antares:
+end
+
+section: aliases
+kevin:
+kevin.2ndsiteinc.com
+antares:
+antares.2ndsiteinc.com
+end
+
+section: links
+kevin:
+left=antares
+antares:
+right=kevin
+end
+
