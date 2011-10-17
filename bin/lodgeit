@@ -1,0 +1,6 @@
+#! /bin/bash
+
+LOCATION="http://paste.2ndsiteinc.com/"
+LANGUAGE=$1
+: ${LANGUAGE:="raw"}
+curl -X POST $LOCATION -d"language=${LANGUAGE}" --data-urlencode "code=$(< /dev/stdin)"
