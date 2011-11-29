@@ -1,0 +1,8 @@
+#! /bin/sh
+
+ticket=$(git symbolic-ref HEAD | awk -F- '/issue-/ {print $2}')
+if [ -n "$ticket" ]; then
+    # previously
+    # echo "See #$ticket"|cat - $1 > /tmp/msg.tmp && mv /tmp/msg.tmp $1
+    echo "`cat $1` See #$ticket." > /tmp/msg.tmp && mv /tmp/msg.tmp $1
+fi
