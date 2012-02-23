@@ -13,6 +13,7 @@
     m = merge --no-ff
     com = checkout master
     co = checkout
+    cob = checkout -b
     pom = pull origin master
     po = pull origin
     lo = log
