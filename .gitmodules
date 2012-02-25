@@ -1,9 +1,0 @@
-[submodule "vimmy"]
-	path = vimmy
-	url = git@github.com:kevinjqiu/vimmy.git
-[submodule "bashit"]
-	path = bashit
-	url = https://github.com/kevinjqiu/bashit
-[submodule "dot_bash"]
-	path = dot_bash
-	url = git@github.com:kevinjqiu/dot_bash.git
