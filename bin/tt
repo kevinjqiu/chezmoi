@@ -4,7 +4,7 @@
 tmux new-session -d -s fresh
 # target session 'fresh' window id 1
 tmux new-window -t fresh:1 -n 'Evolve'
-tmux send-keys 'evolve_activate && dbg_evolve_service'
+tmux send-keys 'evenv && ev'
 tmux send-keys 'Enter'
 
 tmux new-window -t fresh:2 -n 'MySQL' '/usr/bin/mysql -u root'
