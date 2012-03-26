@@ -1,0 +1,8 @@
+#!/bin/sh
+
+tmux new-session -d -s fresh
+tmux new-window -t fresh:1 -n 'api'
+tmux send-keys 'cd ~/src/api'
+tmux send-keys 'Enter'
+tmux send-keys 'v api.sh'
+tmux send-keys 'Enter'
