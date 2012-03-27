@@ -1,3 +1,6 @@
-set editing-mode vi
-set keymap vi
+# set editing-mode vi
+# set keymap vi
+"\e[5C": forward-word
+"\e[5D": backward-word
+
 set blink-matching-paren on
