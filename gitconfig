@@ -17,3 +17,8 @@
     pom = pull origin master
     po = pull origin
     lo = log
+[merge]
+    tool = p4merge
+[mergetool "p4merge"]
+    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+    trustExitCode = false
