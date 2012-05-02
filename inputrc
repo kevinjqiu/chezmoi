@@ -1,5 +1,7 @@
 # set editing-mode vi
 # set keymap vi
+
+# <ESC>Left, Right
 "\e[5C": forward-word
 "\e[5D": backward-word
 
