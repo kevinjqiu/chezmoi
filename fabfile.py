@@ -1,6 +1,8 @@
 import os
 from fabric.colors import yellow
 from fabric.colors import green
+from fabric.operations import local
+from fabric.decorators import lcd
 
 DOT_BASH_URLS = dict(
     ro="git://github.com/kevinjqiu/dot_bash.git",
@@ -20,7 +22,8 @@ def bash(readonly=False):
     print(green("Fetch dot_bash..."))
     os.system("git clone %s" % DOT_BASH_URLS.get('ro' if readonly else 'rw'))
     print(green("Install dot_bash..."))
-    os.system('dot_bash/install.sh')
+    with lcd('dot_bash'):
+        local('install.sh')
 
 def vim(readonly=False):
     """Bring in and setup my vim related customizations"""
