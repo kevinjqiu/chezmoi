@@ -15,7 +15,7 @@ DOT_VIM_URLS = dict(
 def bash(readonly=False):
     """Bring in and setup my bash related customizations"""
     if os.path.exists('dot_bash'):
-        print(yellow("dot_bash folder already exists. Skipping"))
+        print(yellow("folder 'dot_bash' already exists. Skipping"))
         return
     print(green("Fetch dot_bash..."))
     os.system("git clone %s" % DOT_BASH_URLS.get('ro' if readonly else 'rw'))
@@ -24,7 +24,12 @@ def bash(readonly=False):
 
 def vim(readonly=False):
     """Bring in and setup my vim related customizations"""
-    pass
+    if os.path.exists('vimmy'):
+        print(yellow("folder 'vimmy' already exists. Skipping"))
+        return
+    print(green("Fetch vimmy..."))
+    os.system("git clone %s" % DOT_VIM_URLS.get('ro' if readonly else 'rw'))
+    print(green("Install vimmy"))
 
 def _link(source, target, message):
     real_target = os.path.abspath(os.path.expanduser(target))
