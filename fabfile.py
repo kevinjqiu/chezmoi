@@ -25,3 +25,18 @@ def bash(readonly=False):
 def vim(readonly=False):
     """Bring in and setup my vim related customizations"""
     pass
+
+def _link(source, target, message):
+    real_target = os.path.abspath(os.path.expanduser(target))
+    if os.path.exists(real_target):
+        target_backup = os.path.join(real_target, "bak")
+        os.system('mv %s %s' % (real_target, target_backup))
+        print(yellow("%s exists. Renamed to %s" % (real_target, target_backup)))
+    os.system('ln -s %s %s' % (os.path.abspath(source), real_target))
+    print(green(message))
+
+def link():
+    """Make symbolic links"""
+    _link('bin', '~/bin', "~/bin linked")
+    _link('inputrc', '~/.inputrc', ".inputrc linked")
+    _link('tmux.conf', '~/.tmux.conf', ".tmux.conf linked")
