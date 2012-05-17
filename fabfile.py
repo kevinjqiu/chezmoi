@@ -2,7 +2,7 @@ import os
 from fabric.colors import yellow
 from fabric.colors import green
 from fabric.operations import local
-from fabric.decorators import lcd
+from fabric.context_managers import lcd
 
 DOT_BASH_URLS = dict(
     ro="git://github.com/kevinjqiu/dot_bash.git",
