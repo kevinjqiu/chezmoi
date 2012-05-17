@@ -48,3 +48,4 @@ def link():
     _link('bin', '~/bin', "~/bin linked")
     _link('inputrc', '~/.inputrc', ".inputrc linked")
     _link('tmux.conf', '~/.tmux.conf', ".tmux.conf linked")
+    _link('gitconfig', '~/.gitconfig', ".gitconfig linked")
