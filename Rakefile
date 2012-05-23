@@ -43,7 +43,7 @@ desc "Install vimmy"
 task :vimmy do
   unless File.directory? 'vimmy'
     if system("git clone #{DOT_VIM_READONLY_URL}")
-      system("cd vimmy && rake manifest_install")
+      system("cd vimmy && rake bootstrap")
     end
   else
     puts "vimmy already exists"
