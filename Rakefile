@@ -1,7 +1,3 @@
-# DOT_VIM_URLS = {
-#   ro:"https://kevinjqiu@github.com/kevinjqiu/vimmy.git",
-#   rw:"git://github.com/kevinjqiu/vimmy.git"
-# }
 DOT_BASH_READONLY_URL="git://github.com/kevinjqiu/dot_bash.git"
 DOT_VIM_READONLY_URL="git://github.com/kevinjqiu/vimmy.git"
 
