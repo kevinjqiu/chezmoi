@@ -14,6 +14,7 @@ desc "Link dot files"
 task :link do
   LINK_CANDIDATES = [
     ['bin', 'bin'],
+    ['gitconfig', '.gitconfig'],
     ['inputrc', '.inputrc'],
     ['tmux.conf', '.tmux.conf']
   ]
