@@ -2,7 +2,7 @@ DOT_BASH_READONLY_URL="git://github.com/kevinjqiu/dot_bash.git"
 DOT_VIM_READONLY_URL="git://github.com/kevinjqiu/vimmy.git"
 
 def _link(src, target, msg)
-  cmd = "ln -s #{src} #{target}"
+  cmd = "ln -s `pwd`/#{src} #{target}"
   if system(cmd)
     puts msg
   else
@@ -11,18 +11,18 @@ def _link(src, target, msg)
 end
 
 desc "Link dot files"
-task :link do
-  LINK_CANDIDATES = [
-    ['bin', 'bin'],
-    ['gitconfig', '.gitconfig'],
-    ['inputrc', '.inputrc'],
-    ['tmux.conf', '.tmux.conf']
-  ]
+task :link, :target do |t, args|
+  LINK_CANDIDATES = {
+    'bin' => 'bin',
+    'gitconfig' => '.gitconfig',
+    'inputrc' => '.inputrc',
+    'tmux.conf' => '.tmux.conf',
+    'dot_xmonad' => '.xmonad'
+  }
 
-  LINK_CANDIDATES.each do |(src, target)|
-    target = "#{ENV['HOME']}/#{target}"
-    _link(src, target, "#{target} linked")
-  end
+  src = args[:target]
+  target = "#{ENV['HOME']}/#{LINK_CANDIDATES[src]}"
+  _link src, target, "#{target} linked"
 end
 
 desc "Install dot_bash"
