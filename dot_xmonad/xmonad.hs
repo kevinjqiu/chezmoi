@@ -7,5 +7,10 @@ myManageHook = composeAll (
     , className =? "Unity-2d-shell" --> doFloat
     ])
 
-main = xmonad gnomeConfig { manageHook = myManageHook }
+main = xmonad gnomeConfig
+    { manageHook = myManageHook
+    , borderWidth = 3
+    , normalBorderColor = "#cccccc"
+    , focusedBorderColor = "#008800" }
+
 
