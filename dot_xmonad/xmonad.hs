@@ -11,6 +11,7 @@ main = xmonad gnomeConfig
     { manageHook = myManageHook
     , borderWidth = 3
     , normalBorderColor = "#cccccc"
-    , focusedBorderColor = "#008800" }
+    , focusedBorderColor = "#008800"
+    , terminal = "gnome-terminal" }
 
 
