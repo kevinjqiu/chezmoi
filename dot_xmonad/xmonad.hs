@@ -19,6 +19,8 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
        spawn "Unity-2d-shell")
     , ((modMask, xK_o),
       spawn "google-chrome")
+    , ((modMask, xK_e),
+      spawn "nautilus")
     -- Standard xmonad key bindings
     , ((modMask .|. shiftMask, xK_c),
       kill)
