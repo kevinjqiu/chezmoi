@@ -24,7 +24,7 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
     , ((modMask, xK_z),
       spawn "thunderbird")
     , ((modMask, xK_v),
-      spawn "vmplayer")
+      spawn "virt-manager")
     -- Standard xmonad key bindings
     , ((modMask .|. shiftMask, xK_c),
       kill)
