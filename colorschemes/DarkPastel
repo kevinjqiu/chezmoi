@@ -1,0 +1,4 @@
+gconftool-2 --set /apps/gnome-terminal/profiles/$1/foreground_color --type string "#FFFFFF"
+gconftool-2 --set /apps/gnome-terminal/profiles/$1/background_color --type string "#000000"
+gconftool-2 --set /apps/gnome-terminal/profiles/$1/bold_color --type string "#FF5E7D"
+gconftool-2 --set /apps/gnome-terminal/profiles/$1/palette --type string "#000000:#FF5555:#55FF55:#FFFF55:#5555FF:#FF55FF:#55FFFF:#BBBBBB:#555555:#FF5555:#55FF55:#FFFF55:#5555FF:#FF55FF:#55FFFF:#FFFFFF"
