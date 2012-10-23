@@ -78,7 +78,7 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-main = xmonad gnomeConfig
+main = xmonad $ gnomeConfig
     { manageHook = myManageHook
     , borderWidth = 3
     , normalBorderColor = "#cccccc"
