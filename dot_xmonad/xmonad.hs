@@ -15,8 +15,8 @@ myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
     [ ((modMask .|. shiftMask, xK_Return),
        spawn $ XMonad.terminal conf)
-    , ((modMask, xK_p),
-       spawn "gnome-do")
+    , ((modMask, xK_u),
+      spawn "gnome-do")
     , ((modMask, xK_o),
       spawn "google-chrome")
     , ((modMask, xK_e),
@@ -84,5 +84,6 @@ main = xmonad $ gnomeConfig
     , normalBorderColor = "#cccccc"
     , focusedBorderColor = "#008800"
     , terminal = "gnome-terminal"
+    , modMask = mod4Mask
     , keys = myKeys
     }
