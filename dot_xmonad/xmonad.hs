@@ -8,7 +8,7 @@ import qualified XMonad.StackSet as W
 myManageHook = composeAll (
     [ manageHook gnomeConfig
     , className =? "Unity-2d-panel" --> doIgnore
-    , className =? "Unity-2d-shell" --> doFloat
+    , className =? "Do" --> doFloat
     ])
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
@@ -16,7 +16,7 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
     [ ((modMask .|. shiftMask, xK_Return),
        spawn $ XMonad.terminal conf)
     , ((modMask, xK_p),
-       spawn "Unity-2d-shell")
+       spawn "gnome-do")
     , ((modMask, xK_o),
       spawn "google-chrome")
     , ((modMask, xK_e),
