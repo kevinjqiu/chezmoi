@@ -9,7 +9,7 @@ myWorkspaces =
   [
     "1:",  "2:", "3:",
     "4:",  "5:", "6:",
-    "7:",  "8:", "9:chat",
+    "7:",  "8:notes", "9:chat",
     "0:vm"
   ]
 
@@ -19,6 +19,7 @@ myManageHook = composeAll (
     , className =? "Do" --> doFloat
     , className =? "Pidgin" --> doF (W.shift "9:chat")
     , className =? "Vmplayer" --> doF (W.shift "0:vm")
+    , className =? "Everpad" --> doF (W.shift "8:notes")
     ])
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
