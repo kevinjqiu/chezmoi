@@ -5,10 +5,20 @@ import XMonad.Config.Gnome
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
+myWorkspaces =
+  [
+    "1:",  "2:", "3:",
+    "4:",  "5:", "6:",
+    "7:",  "8:", "9:chat",
+    "0:vm"
+  ]
+
 myManageHook = composeAll (
     [ manageHook gnomeConfig
     , className =? "Unity-2d-panel" --> doIgnore
     , className =? "Do" --> doFloat
+    , className =? "Pidgin" --> doF (W.shift "9:chat")
+    , className =? "vmplayer" --> doF (W.shift "0:vm")
     ])
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
@@ -69,7 +79,7 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
     -- mod-[1..9], switch to workspace N
     -- mod-shift-[1..9], move client to workspace N
     [ ((m .|. modMask, k), windows $ f i)
-         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+         | (i, k) <- zip myWorkspaces ([xK_1 .. xK_9] ++ [xK_0])
          , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
     -- mod-{w,e,r}, switch to physical/xinerama screens 1, 2, or 3
@@ -80,10 +90,11 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
 
 main = xmonad $ gnomeConfig
     { manageHook = myManageHook
-    , borderWidth = 3
+    , borderWidth = 2
     , normalBorderColor = "#cccccc"
     , focusedBorderColor = "#008800"
     , terminal = "gnome-terminal"
     , modMask = mod4Mask
+    , workspaces = myWorkspaces
     , keys = myKeys
     }
