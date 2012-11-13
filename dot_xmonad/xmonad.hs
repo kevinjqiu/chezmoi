@@ -18,7 +18,7 @@ myManageHook = composeAll (
     , className =? "Unity-2d-panel" --> doIgnore
     , className =? "Do" --> doFloat
     , className =? "Pidgin" --> doF (W.shift "9:chat")
-    , className =? "vmplayer" --> doF (W.shift "0:vm")
+    , className =? "Vmplayer" --> doF (W.shift "0:vm")
     ])
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
@@ -34,7 +34,7 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
     , ((modMask, xK_z),
       spawn "thunderbird")
     , ((modMask, xK_v),
-      spawn "virt-manager")
+      spawn "vmplayer")
     -- Standard xmonad key bindings
     , ((modMask .|. shiftMask, xK_c),
       kill)
