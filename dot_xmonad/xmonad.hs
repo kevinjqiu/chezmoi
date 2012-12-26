@@ -2,6 +2,7 @@ import System.IO
 import System.Exit
 import XMonad
 import XMonad.Config.Gnome
+import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
@@ -98,4 +99,5 @@ main = xmonad $ gnomeConfig
     , modMask = mod4Mask
     , workspaces = myWorkspaces
     , keys = myKeys
+    , handleEventHook = fullscreenEventHook
     }
