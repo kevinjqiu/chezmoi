@@ -3,6 +3,7 @@ import System.Exit
 import XMonad
 import XMonad.Config.Gnome
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
+import XMonad.Hooks.FadeInactive (fadeInactiveLogHook) 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
@@ -90,6 +91,10 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
+myLogHook :: X ()
+myLogHook = fadeInactiveLogHook fadeAmount
+    where fadeAmount = 0.5
+
 main = xmonad $ gnomeConfig
     { manageHook = myManageHook
     , borderWidth = 2
@@ -100,4 +105,5 @@ main = xmonad $ gnomeConfig
     , workspaces = myWorkspaces
     , keys = myKeys
     , handleEventHook = fullscreenEventHook
+    , logHook = myLogHook
     }
