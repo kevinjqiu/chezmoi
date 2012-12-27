@@ -93,7 +93,7 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
 
 myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 0.5
+    where fadeAmount = 0.7
 
 main = xmonad $ gnomeConfig
     { manageHook = myManageHook
