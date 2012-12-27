@@ -1,7 +1,7 @@
 import System.IO
 import System.Exit
 import XMonad
-import XMonad.Config.Gnome
+import XMonad.Config.Gnome (gnomeConfig)
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Hooks.FadeInactive (fadeInactiveLogHook) 
 import qualified Data.Map as M
