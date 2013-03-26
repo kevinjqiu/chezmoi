@@ -2,7 +2,7 @@ import System.IO
 import System.Exit
 import XMonad
 import XMonad.Config.Gnome (gnomeConfig)
-import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
+import XMonad.Hooks.EwmhDesktops (fullscreenEventHook, ewmh)
 import XMonad.Hooks.FadeInactive (fadeInactiveLogHook) 
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
@@ -95,7 +95,7 @@ myLogHook :: X ()
 myLogHook = fadeInactiveLogHook fadeAmount
     where fadeAmount = 0.7
 
-main = xmonad $ gnomeConfig
+main = xmonad $ ewmh gnomeConfig
     { manageHook = myManageHook
     , borderWidth = 2
     , normalBorderColor = "#cccccc"
