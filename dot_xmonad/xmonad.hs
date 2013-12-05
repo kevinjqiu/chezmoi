@@ -22,6 +22,7 @@ myManageHook = composeAll (
     , className =? "Pidgin" --> doF (W.shift "9:chat")
     , className =? "Vmplayer" --> doF (W.shift "0:vm")
     , className =? "Everpad" --> doF (W.shift "8:notes")
+    , className =? "Xfce4-notifyd" --> doF W.focusDown
     ])
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
