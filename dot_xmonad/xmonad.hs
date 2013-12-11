@@ -19,6 +19,7 @@ myManageHook = composeAll (
     [ manageHook gnomeConfig
     , className =? "Unity-2d-panel" --> doIgnore
     , className =? "Do" --> doFloat
+    , className =? "synapse" --> doFloat
     , className =? "Pidgin" --> doF (W.shift "9:chat")
     , className =? "Vmplayer" --> doF (W.shift "0:vm")
     , className =? "Everpad" --> doF (W.shift "8:notes")
@@ -30,7 +31,7 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
     [ ((modMask .|. shiftMask, xK_Return),
        spawn $ XMonad.terminal conf)
     , ((modMask, xK_u),
-      spawn "gnome-do")
+      spawn "synapse")
     , ((modMask, xK_o),
       spawn "google-chrome")
     , ((modMask, xK_e),
