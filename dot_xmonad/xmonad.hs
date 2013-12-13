@@ -103,7 +103,6 @@ main = xmonad $ ewmh gnomeConfig
     , normalBorderColor = "#cccccc"
     , focusedBorderColor = "#008800"
     , terminal = "gnome-terminal --hide-menubar"
-    , modMask = mod4Mask
     , workspaces = myWorkspaces
     , keys = myKeys
     , handleEventHook = fullscreenEventHook
