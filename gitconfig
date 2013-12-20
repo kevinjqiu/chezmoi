@@ -1,15 +1,15 @@
 [user]
-	name = Kevin Qiu
-	email = kevin@freshbooks.com
+    name = Kevin Qiu
+    email = kevin@freshbooks.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+    diff = auto
+    status = auto
+    branch = auto
 [core]
-	autocrlf = false 
+    autocrlf = false 
 [alias]
-	st = status
-	sts = status -s
+    st = status
+    sts = status -s
     m = merge --no-ff
     com = checkout master
     co = checkout
@@ -18,14 +18,14 @@
     po = pull origin
     lo = log
 [merge]
-	tool = meld
+    tool = meld
 [mergetool "p4merge"]
     cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
     trustExitCode = false
 [giggle]
-	main-window-maximized = false
-	main-window-geometry = 956x1076+0+0
-	main-window-view = HistoryView
-	history-view-vpane-position = 760
+    main-window-maximized = false
+    main-window-geometry = 956x1076+0+0
+    main-window-view = HistoryView
+    history-view-vpane-position = 760
 [mergetool "meld"]
-	path = /usr/bin/meld
+    path = /usr/bin/meld
