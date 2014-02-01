@@ -1,0 +1,4 @@
+alias nl n;;l
+alias sl s;;l
+
+alias pp import pprint; pprint.pprint(%1)
