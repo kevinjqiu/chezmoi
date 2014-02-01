@@ -41,3 +41,7 @@ Host github.2ndsiteinc.com
     HostName github.2ndsiteinc.com
     User kevin
     IdentityFile /home/kevin/.ssh/id_rsa_fb
+
+Host pi
+    HostName rpi
+    User pi
