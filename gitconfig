@@ -22,10 +22,5 @@
 [mergetool "p4merge"]
     cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
     trustExitCode = false
-[giggle]
-    main-window-maximized = false
-    main-window-geometry = 956x1076+0+0
-    main-window-view = HistoryView
-    history-view-vpane-position = 760
 [mergetool "meld"]
     path = /usr/bin/meld
