@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
 if [ $# -eq 1 ]; then
-    ENDPATH=$1
+    ENDPATH=$(realpath $1)
 else
     ENDPATH="$HOME/vimmy"
 fi
