@@ -24,3 +24,5 @@
     trustExitCode = false
 [mergetool "meld"]
     path = /usr/bin/meld
+[push]
+	default = simple
