@@ -6,7 +6,7 @@ else
     ENDPATH="$HOME/vimmy"
 fi
 
-REPO_URL="git@github.com:kevinjqiu/vimmy.git"
+REPO_URL="https://github.com/kevinjqiu/vimmy.git"
 
 TODAY=`date +%Y%m%d`
 
@@ -19,7 +19,7 @@ mkdir -p $ENDPATH/vim/bundle
 ln -s $ENDPATH/vimrc $HOME/.vimrc
 ln -s $ENDPATH/vim $HOME/.vim
 
-git clone git@github.com:gmarik/vundle.git $HOME/.vim/bundle/vundle
+git clone "https://github.com/gmarik/Vundle.vim.git" "$HOME/.vim/bundle/vundle"
 
 vim +BundleInstall! +BundleClean +qall
 
