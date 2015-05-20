@@ -25,6 +25,13 @@ task :link, :target do |t, args|
   _link src, target, "#{target} linked"
 end
 
+desc "Link all files"
+task :link_all do
+  Rake::Task["link"].invoke "gitconfig"
+  Rake::Task["link"].invoke "inputrc"
+  Rake::Task["link"].invoke "tmux.conf"
+end
+
 desc "Install dot_bash"
 task :dot_bash do
   unless File.directory? 'dot_bash'
