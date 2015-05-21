@@ -31,4 +31,4 @@ fi
 
 vim +BundleInstall! +BundleClean +qall
 
-cd "$ENDPATH" && ./update-snippets.sh
+cd "$ENDPATH" && ./update_snippets.sh
