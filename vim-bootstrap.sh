@@ -14,13 +14,21 @@ for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do
     [ -e $i ] && mv $i $i.$TODAY
 done
 
-git clone --recursive $REPO_URL $ENDPATH
-mkdir -p $ENDPATH/vim/bundle
-ln -s $ENDPATH/vimrc $HOME/.vimrc
-ln -s $ENDPATH/vim $HOME/.vim
+if [ ! -d "$ENDPATH" ]; then
+    git clone --recursive "$REPO_URL" "$ENDPATH"
+fi
 
-git clone "https://github.com/gmarik/Vundle.vim.git" "$HOME/.vim/bundle/vundle"
+if [ ! -d "$ENDPATH/vim/bundle" ]; then
+    mkdir -p "$ENDPATH/vim/bundle"
+fi
+
+ln -s "$ENDPATH/vimrc" "$HOME/.vimrc"
+ln -s "$ENDPATH/vim" "$HOME/.vim"
+
+if [ ! -d "$HOME/.vim/bundle/vundle" ]; then
+    git clone "https://github.com/gmarik/Vundle.vim.git" "$HOME/.vim/bundle/vundle"
+fi
 
 vim +BundleInstall! +BundleClean +qall
 
-cd $ENDPATH && ./update-snippets.sh
+cd "$ENDPATH" && ./update-snippets.sh
