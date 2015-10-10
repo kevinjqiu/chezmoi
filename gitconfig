@@ -17,12 +17,5 @@
     pom = pull origin master
     po = pull origin
     lo = log
-[merge]
-    tool = meld
-[mergetool "p4merge"]
-    cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-    trustExitCode = false
-[mergetool "meld"]
-    path = /usr/bin/meld
 [push]
 	default = simple
