@@ -7,41 +7,15 @@ TCPKeepAlive no
 ServerAliveInterval 60
 ServerAliveCountMax 10
 
-Host dev
-    HostName freshbooksdev.com
-    User fresh
-    ForwardAgent yes
-
-Host git.2ndsiteinc.com
-    HostName git.2ndsiteinc.com
-    User kevin
-    IdentityFile /home/kevin/.ssh/id_rsa_fb
-
-Host prod.2ndsiteinc.com
-    HostName prod.2ndsiteinc.com
-    User kevinqiu
-    IdentityFile /home/kevin/.ssh/id_rsa_fb
-
-Host optimus
-    HostName optimus.2ndsiteinc.com
-    User kevin
-    IdentityFile /home/kevin/.ssh/id_rsa_fb
-
-Host prod
-    Hostname prod.2ndsiteinc.com
-    User kevin
-    IdentityFile /home/kevin/.ssh/id_rsa_fb
-
-Host idempotent.ca
-    HostName idempotent.ca
-    User kevin
-    IdentityFile /home/kevin/.ssh/id_rsa_idempotent
-
-Host github.2ndsiteinc.com
-    HostName github.2ndsiteinc.com
-    User kevin
-    IdentityFile /home/kevin/.ssh/id_rsa_fb
-
 Host pi
     HostName rpi
     User pi
+
+Host idempotent
+    HostName 104.131.44.227
+    User kevin
+    IdentityFile /home/kevin/.ssh/id_rsa_idempotent
+
+# rockbox proxy
+Host *.env
+    ProxyCommand ssh -q $(echo %h | sed 's/\.env/.freshenv.com/;s/[^\.]*\./gateway./') nc  "%h.fbks.in" 22
