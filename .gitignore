@@ -5,4 +5,4 @@ dot_xmonad/*.hi
 dot_xmonad/*.o
 dot_xmonad/*.errors
 dot_xmonad/xmonad-*
-
+tmux/*
