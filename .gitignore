@@ -1,8 +1,7 @@
 dot_bash/
 vimmy/
 *.pyc
-dot_xmonad/*.hi
-dot_xmonad/*.o
-dot_xmonad/*.errors
-dot_xmonad/xmonad-*
-tmux/*
+xmonad/*.hi
+xmonad/*.o
+xmonad/*.errors
+xmonad/xmonad-*
