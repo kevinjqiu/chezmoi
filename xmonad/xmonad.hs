@@ -4,6 +4,8 @@ import XMonad
 import XMonad.Config.Gnome (gnomeConfig)
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook, ewmh)
 import XMonad.Hooks.FadeInactive (fadeInactiveLogHook) 
+import XMonad.Hooks.DynamicLog
+import XMonad.Util.Run (spawnPipe)
 import qualified Data.Map as M
 import qualified XMonad.StackSet as W
 
@@ -40,6 +42,8 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
       spawn "thunderbird")
     , ((modMask, xK_v),
       spawn "vmplayer")
+    , ((modMask .|. controlMask, xK_l),
+      spawn "/usr/bin/gnome-screensaver-command --lock")
     -- Standard xmonad key bindings
     , ((modMask .|. shiftMask, xK_c),
       kill)
@@ -93,18 +97,28 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-myLogHook :: X ()
-myLogHook = fadeInactiveLogHook fadeAmount
-    where fadeAmount = 0.8
+-- myLogHook :: X ()
+-- myLogHook = fadeInactiveLogHook fadeAmount
+--    where fadeAmount = 0.8
 
-main = xmonad $ ewmh gnomeConfig
-    { manageHook = myManageHook
-    , borderWidth = 2
-    , normalBorderColor = "#cccccc"
-    , focusedBorderColor = "#008800"
-    , terminal = "gnome-terminal --hide-menubar"
-    , workspaces = myWorkspaces
-    , keys = myKeys
-    , handleEventHook = fullscreenEventHook
-    , logHook = myLogHook
+xmobarTitleColor = "#FFB6B0"
+xmobarCurrentWorkspaceColor = "#CEFFAC"
+
+main = do
+    xmproc <- spawnPipe "xmobar ~/.xmobarrc"
+    xmonad $ gnomeConfig {
+          manageHook = myManageHook
+        , borderWidth = 2
+        , normalBorderColor = "#cccccc"
+        , focusedBorderColor = "#008800"
+        , terminal = "gnome-terminal --hide-menubar"
+        , workspaces = myWorkspaces
+        , keys = myKeys
+        , handleEventHook = fullscreenEventHook
+        , logHook = dynamicLogWithPP $ xmobarPP {
+              ppOutput = hPutStrLn xmproc
+            , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
+            , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
+            , ppSep = "    "
+        }
     }

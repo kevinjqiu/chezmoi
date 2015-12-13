@@ -1,5 +1,6 @@
 -- vim: set ft=haskell:
-Config { font = "xft:Bitstream Vera Sans Mono:size=8:antialias=true"
+Config {
+    font = "xft:Bitstream Vera Sans Mono:size=8:antialias=true"
     , borderColor = "black"
     , border = TopB
     , bgColor = "black"
@@ -54,9 +55,9 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=8:antialias=true"
             -- charged status
             , "-i"   , "<fc=#006000>Charged</fc>"
         ] 50
-        -- Run StdinReader
+        , Run StdinReader
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%multicpu% | %coretemp% | %memory% * %swap% | %dynnetwork%}{<fc=#ee9a00>%date%</fc> | %battery%"
+    , template = "%StdinReader% | %multicpu% | %coretemp% | %memory% * %swap% | %dynnetwork%}{<fc=#ee9a00>%date%</fc> | %battery%"
 }
