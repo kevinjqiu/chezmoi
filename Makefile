@@ -3,6 +3,7 @@
 inputrc:
 	-unlink $(HOME)/.inputrc
 	ln --symbolic $(shell pwd)/etc/inputrc $(HOME)/.inputrc
+
 git:
 	-unlink $(HOME)/.gitconfig
 	ln --symbolic $(shell pwd)/git/gitconfig $(HOME)/.gitconfig
