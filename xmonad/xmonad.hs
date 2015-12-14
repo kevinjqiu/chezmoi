@@ -33,7 +33,7 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
     [ ((modMask .|. shiftMask, xK_Return),
        spawn $ XMonad.terminal conf)
     , ((modMask, xK_u),
-      spawn "synapse")
+      spawn "dmenu_run")
     , ((modMask, xK_o),
       spawn "chromium-browser")
     , ((modMask, xK_e),
