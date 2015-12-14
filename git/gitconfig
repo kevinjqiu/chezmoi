@@ -1,0 +1,25 @@
+[user]
+name = Kevin Jing Qiu
+email = kevin@idempotent.ca
+
+[color]
+diff = auto
+status = auto
+branch = auto
+
+[core]
+autocrlf = false 
+
+[alias]
+st = status
+sts = status -s
+m = merge --no-ff
+com = checkout master
+co = checkout
+cob = checkout -b
+pom = pull origin master
+po = pull origin
+lo = log
+
+[push]
+default = simple
