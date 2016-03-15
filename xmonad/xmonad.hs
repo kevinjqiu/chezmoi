@@ -35,7 +35,7 @@ myKeys conf@(XConfig { XMonad.modMask = modMask }) = M.fromList $
     , ((modMask, xK_u),
       spawn "dmenu_run")
     , ((modMask, xK_o),
-      spawn "chromium-browser")
+      spawn "google-chrome")
     , ((modMask, xK_e),
       spawn "nautilus")
     , ((modMask, xK_z),
