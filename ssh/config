@@ -7,15 +7,44 @@ TCPKeepAlive no
 ServerAliveInterval 60
 ServerAliveCountMax 10
 
-Host pi
-    HostName rpi
-    User pi
+Host per-web-1
+    StrictHostKeyChecking no
+    HostName 10.102.16.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
 
-Host idempotent
-    HostName 104.131.44.227
-    User kevin
-    IdentityFile /home/kevin/.ssh/id_rsa_idempotent
+Host per-web-2
+    StrictHostKeyChecking no
+    HostName 10.102.144.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
 
-# rockbox proxy
-Host *.env
-    ProxyCommand ssh -q $(echo %h | sed 's/\.env/.freshenv.com/;s/[^\.]*\./gateway./') nc  "%h.fbks.in" 22
+Host per-lb-1
+    StrictHostKeyChecking no
+    HostName 10.102.16.5
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host per-lb-2
+    StrictHostKeyChecking no
+    HostName 10.102.144.5
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host per-nat-1
+    StrictHostKeyChecking no
+    HostName 10.102.0.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host per-nat-2
+    StrictHostKeyChecking no
+    HostName 10.102.128.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host ft-web-1
+    StrictHostKeyChecking no
+    HostName 10.100.16.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
