@@ -96,3 +96,17 @@ Host ft-data-3
     HostName 10.100.48.12
     User ubuntu
     IdentityFile %d/.ssh/ubuntu.pem
+
+Host idempotent
+    HostName 104.131.44.227
+    User kevin
+    IdentityFile /home/kevin/.ssh/id_rsa_idempotent
+
+Host aur
+    HostName aur.archlinux.org
+    IdentityFile ~/.ssh/aur
+    User aur
+
+# rockbox proxy
+Host *.env
+    ProxyCommand ssh -q $(echo %h | sed 's/\.env/.freshenv.com/;s/[^\.]*\./gateway./') nc  "%h.fbks.in" 22
