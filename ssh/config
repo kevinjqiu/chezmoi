@@ -43,8 +43,56 @@ Host per-nat-2
     User ubuntu
     IdentityFile %d/.ssh/ubuntu.pem
 
+Host per-data-1
+    StrictHostKeyChecking no
+    HostName 10.102.48.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host per-data-2
+    StrictHostKeyChecking no
+    HostName 10.102.176.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host per-data-3
+    StrictHostKeyChecking no
+    HostName 10.102.48.12
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
 Host ft-web-1
     StrictHostKeyChecking no
     HostName 10.100.16.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host test-web-1
+    StrictHostKeyChecking no
+    HostName 10.101.16.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host test-nat-1
+    StrictHostKeyChecking no
+    HostName 10.101.0.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host ft-data-1
+    StrictHostKeyChecking no
+    HostName 10.100.48.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host ft-data-2
+    StrictHostKeyChecking no
+    HostName 10.100.176.11
+    User ubuntu
+    IdentityFile %d/.ssh/ubuntu.pem
+
+Host ft-data-3
+    StrictHostKeyChecking no
+    HostName 10.100.48.12
     User ubuntu
     IdentityFile %d/.ssh/ubuntu.pem
