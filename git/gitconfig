@@ -1,6 +1,6 @@
 [user]
-name = Kevin Jing Qiu
-email = kevin@idempotent.ca
+	name = Kevin Jing Qiu
+	email = kevin@idempotent.ca
 
 [color]
 diff = auto
