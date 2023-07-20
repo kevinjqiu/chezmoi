@@ -1,6 +1,6 @@
 [user]
-	name = Kevin Jing Qiu
-	email = kevin@idempotent.ca
+	name = Kevin J. Qiu
+	email = kevin.qiu@instacart.com
 
 [color]
 diff = auto
@@ -9,6 +9,8 @@ branch = auto
 
 [core]
 autocrlf = false 
+whitespace = trailing-space,space-before-tab
+pager = delta
 
 [alias]
 st = status
@@ -22,4 +24,32 @@ po = pull origin
 lo = log
 
 [push]
-default = simple
+	default = simple
+[http]
+	postBuffer = 524288000
+[mergetool]
+	keepBackup = false
+;[diff]
+;    mnemonicprefix = true
+[merge]
+	stat = true
+[credential]
+	helper = osxkeychain
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "ssh://git@github.com"]
+	insteadOf = https://github.com
+
+;[interactive]
+;    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+[maintenance]
+	repo = /Users/kevinqiu/src/carrot
