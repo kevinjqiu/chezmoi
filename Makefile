@@ -1,4 +1,4 @@
-.PHONY: git ssh tmux herdr xmonad xmobar
+.PHONY: git ssh tmux herdr nvim xmonad xmobar
 
 inputrc:
 	-unlink $(HOME)/.inputrc
@@ -22,6 +22,11 @@ herdr:
 	-mkdir -p $(HOME)/.config/herdr
 	-unlink $(HOME)/.config/herdr/config.toml
 	ln -s $(shell pwd)/herdr/config.toml $(HOME)/.config/herdr/config.toml
+
+nvim:
+	-mkdir -p $(HOME)/.config/nvim
+	-unlink $(HOME)/.config/nvim/init.lua
+	ln -s $(shell pwd)/nvim/init.lua $(HOME)/.config/nvim/init.lua
 
 xmonad:
 	-unlink $(HOME)/.xmonad
