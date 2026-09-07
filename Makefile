@@ -1,4 +1,4 @@
-.PHONY: git ssh tmux xmonad xmobar
+.PHONY: git ssh tmux herdr xmonad xmobar
 
 inputrc:
 	-unlink $(HOME)/.inputrc
@@ -18,6 +18,11 @@ tmux:
 	-mkdir $(HOME)/.tmux
 	-git clone https://github.com/tmux-plugins/tpm $(HOME)/.tmux/plugins/tpm
 
+herdr:
+	-mkdir -p $(HOME)/.config/herdr
+	-unlink $(HOME)/.config/herdr/config.toml
+	ln -s $(shell pwd)/herdr/config.toml $(HOME)/.config/herdr/config.toml
+
 xmonad:
 	-unlink $(HOME)/.xmonad
 	ln --symbolic $(shell pwd)/xmonad $(HOME)/.xmonad
@@ -26,3 +31,4 @@ xmonad:
 xmobar:
 	-unlink $(HOME)/.xmobarrc
 	ln --symbolic $(shell pwd)/xmobar/xmobarrc $(HOME)/.xmobarrc
+

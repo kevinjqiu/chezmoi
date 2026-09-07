@@ -1,0 +1,55 @@
+# herdr configuration — ported from tmux/tmux.conf
+
+[terminal]
+# tmux: set-option -g default-terminal "screen-256color"
+# Herdr handles terminal detection automatically; no 256-color option needed.
+
+[keys]
+# tmux: set-option -g prefix C-Space (outer), C-a (inner)
+prefix = "ctrl+a"
+
+# tmux: bind h/j/k/l select-pane (default in herdr)
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# tmux: bind Space split-window -v (horizontal split)
+split_horizontal = "prefix+space"
+
+# tmux: bind v split-window -h (vertical split)
+split_vertical = "prefix+v"
+
+# tmux: unbind C-x; bind C-x kill-pane
+close_pane = "prefix+ctrl+x"
+
+# tmux: bind z last-window
+last_pane = "prefix+z"
+
+# tmux: bind L/H/K/J resize-pane
+# Set resize mode to match tmux's directional resize keys.
+resize_mode = "prefix+shift+r"
+resize_pane_left = "prefix+shift+h"
+resize_pane_down = "prefix+shift+j"
+resize_pane_up = "prefix+shift+k"
+resize_pane_right = "prefix+shift+l"
+
+# tmux: unbind r; bind r source-file ~/.tmux.conf
+reload_config = "prefix+r"
+
+[advanced]
+# tmux: set-option -g history-limit 5000
+# ~5000 lines * ~120 cols ≈ 600KB
+scrollback_limit_bytes = 600000
+
+[experimental]
+# tmux: nested session support (parent/child tmux)
+allow_nested = true
+
+[ui]
+# tmux: set -g status-right-length 60 / status-left-length 20
+# Herdr sidebar/tab bar sizes are UI-driven; no direct mapping.
+
+# tmux: set -g pane-border-style / status-bg colour19 / colour24
+# Use a theme that matches the blue status bar aesthetic.
+accent = "blue"
