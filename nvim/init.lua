@@ -32,6 +32,7 @@ require("lazy").setup({
 
   -- Color
   "flazz/vim-colorschemes",
+  { "ellisonleao/gruvbox.nvim", priority = 1000 },
 
   -- Completion / LSP (requires nodejs; run :CocInstall coc-python after setup)
   { "neoclide/coc.nvim", branch = "release" },
@@ -194,9 +195,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
 })
 -- }
 
--- solarized (ported from vim/20-solarized.vim) {
-vim.g.solarized_termcolors = 256
-vim.g.solarized_termtrans = 1
+-- gruvbox colorscheme {
+vim.cmd("colorscheme gruvbox")
 -- }
 
 -- Local overrides (ported from vimrc) {
